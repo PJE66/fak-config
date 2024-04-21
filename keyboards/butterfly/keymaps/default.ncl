@@ -54,17 +54,20 @@ let cu = {
 	],
 	layers = [
 		[
+#			kc.A, kc.S & md.lctl, kc.H & md.lsft, kc.T & md.lalt,      kc.M,      kc.N & md.lalt, kc.E & md.lsft, kc.O & md.lctl, kc.I,
 			kc.A, kc.S, kc.H, kc.T,      kc.M,      kc.N, kc.E, kc.O, kc.I,
 			      kc.D, kc.R, kc.C,   kc.G, kc.Y,   kc.L, kc.U, kc.P,
 			          cu.TH_UP, cu.TH_DN, cu.TH_FM, cu.TH_FN,
+			# Virtual Combos
 				kc.Q, kc.V, kc.W, kc.TAB,        kc.BSPC, kc.F, kc.J, kc.BSPC,
 				      kc.Z, kc.X, kc.TAB,        kc.BSPC, kc.K, kc.B,
-				cu.BOOT
+				cu.BOOT,
 		],
 		[
 			TTTT, ks.PERC, TTTT,    ks.PLUS,     kc.N1,     kc.N2, kc.N3, kc.N4, kc.N5,
 			         TTTT, kc.BSLS, kc.MINS, kc.EQL, kc.N6, kc.N7, kc.N8, kc.N9,
 				           TTTT,    TTTT,                   kc.N0, kc.DOT,
+			# Virtual Combos
 			  TTTT, TTTT, TTTT, TTTT,                   TTTT,    TTTT,    TTTT,     TTTT,
 			  		TTTT, TTTT, TTTT,                   TTTT,    TTTT,    TTTT,
 			  TTTT,
@@ -81,16 +84,18 @@ let cu = {
 			kc.ESC, TTTT, TTTT, kc.DEL,    kc.PGUP,     kc.LEFT, kc.UP,   kc.RIGHT, kc.ENTER,
 			      kc.TAB, TTTT, TTTT,   TTTT,  kc.PGDN, kc.HOME, kc.DOWN, kc.END,
 			              TTTT, TTTT,                   TTTT,    TTTT,
+			# Virtual Combos
 			  TTTT, TTTT, TTTT, TTTT,                   TTTT,    TTTT,    TTTT,     TTTT,
 			  		TTTT, TTTT, TTTT,                   TTTT,    TTTT,    TTTT,
 			  TTTT,
 		],
 		[
-			kc.A, kc.S, kc.H, kc.T,      kc.G,      kc.N, kc.E, kc.I, kc.O,
-			      kc.D, kc.R, kc.M,   kc.G, kc.Y,   kc.L, kc.U, kc.P,
+			kc.A, kc.S, kc.H, kc.T,      kc.F1,      kc.F2, kc.F3, kc.F4, kc.F5,
+			      kc.D, kc.R, kc.M,   kc.G, kc.F6,   kc.F7, kc.F8, kc.F9,
 			          cu.TH_DN, cu.TH_UP, cu.TH_FN, cu.TH_FN,
-			  TTTT, TTTT, TTTT, TTTT,                   TTTT,    TTTT,    TTTT,     TTTT,
-			  		TTTT, TTTT, TTTT,                   TTTT,    TTTT,    TTTT,
+			# Virtual Combos
+			  TTTT, TTTT, TTTT, TTTT,                   kc.F10, kc.F11, kc.F12, TTTT,
+			  		TTTT, TTTT, TTTT,                   TTTT,   TTTT,    TTTT,
 			  TTTT,
 		],
 	]
