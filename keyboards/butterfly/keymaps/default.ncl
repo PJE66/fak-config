@@ -4,30 +4,21 @@ let util = import "fak/util_functions.ncl" in
 let TTTT = tap.trans & hold.trans in
 let kc = tap.reg.kc in
 let ks = tap.reg.ks in
+let km = tap.reg.mod in
 let md = hold.reg.mod in
 let MO = hold.reg.layer in
-
+let hrb = hold.reg.behavior in
 let cu = {
-	SFTZ = td.make 100 [
-		md.lsft & kc.Z & hold.reg.behavior {},
-		tap.reg.mod.lsft & kc.Z,
-	],
-	SFTA = td.make 100 [
-		md.lsft & kc.A & hold.reg.behavior {},
-		tap.reg.mod.lsft & kc.A,
-	],
-	CTLX = td.make 100 [
-		md.lctl & kc.X & hold.reg.behavior {},
-		tap.reg.mod.lctl & kc.X,
-	],
-	GUIC = td.make 100 [
-		md.lgui & kc.C & hold.reg.behavior {},
-		tap.reg.mod.lgui & kc.C,
-	],
-	TH_DN = MO 1 & kc.BSPC & hold.reg.behavior {},
-	TH_UP = MO 2 & kc.SPC & hold.reg.behavior {},
-	TH_FM = MO 3 & kc.SPC & hold.reg.behavior {},
-	TH_FN = MO 4 & kc.ENTER & hold.reg.behavior {},
+	SftH = td.make 100 [ md.lsft & kc.H & hrb {}, km.lsft & kc.H, ],
+	SftE = td.make 100 [ md.lsft & kc.E & hrb {}, km.lsft & kc.E, ],
+	CtlT = td.make 100 [ md.lctl & kc.T & hrb {}, km.lctl & kc.T, ],
+	CtlN = td.make 100 [ md.lctl & kc.N & hrb {}, km.lctl & kc.N, ],
+	AltS = td.make 100 [ md.lalt & kc.S & hrb {}, km.lalt & kc.S, ],
+	AltO = td.make 100 [ md.lalt & kc.O & hrb {}, km.lalt & kc.O, ],
+	TH_DN = MO 1 & kc.SPC & hrb {},
+	TH_UP = MO 2 & kc.BSPC & hrb {},
+	TH_FM = MO 3 & kc.SPC & hrb {},
+	TH_FN = MO 4 & kc.ENTER & hrb {},
 	BOOT = tap.custom.fak.BOOT,
 } in
 
@@ -54,8 +45,7 @@ let cu = {
 	],
 	layers = [
 		[
-#			kc.A, kc.S & md.lctl, kc.H & md.lsft, kc.T & md.lalt,      kc.M,      kc.N & md.lalt, kc.E & md.lsft, kc.O & md.lctl, kc.I,
-			kc.A, kc.S, kc.H, kc.T,      kc.M,      kc.N, kc.E, kc.O, kc.I,
+			kc.A, cu.AltS, cu.SftH, cu.CtlT,      kc.M,      cu.CtlN, cu.SftE, cu.AltO, kc.I,
 			      kc.D, kc.R, kc.C,   kc.G, kc.Y,   kc.L, kc.U, kc.P,
 			          cu.TH_UP, cu.TH_DN, cu.TH_FM, cu.TH_FN,
 			# Virtual Combos
@@ -63,7 +53,7 @@ let cu = {
 				      kc.Z, kc.X, kc.TAB,        kc.BSPC, kc.K, kc.B,
 				cu.BOOT,
 		],
-		[
+		[	# a%h+12345  d\-=6789  ??0.+
 			TTTT, ks.PERC, TTTT,    ks.PLUS,     kc.N1,     kc.N2, kc.N3, kc.N4, kc.N5,
 			         TTTT, kc.BSLS, kc.MINS, kc.EQL, kc.N6, kc.N7, kc.N8, kc.N9,
 				           TTTT,    TTTT,                   kc.N0, kc.DOT,
@@ -72,7 +62,7 @@ let cu = {
 			  		TTTT, TTTT, TTTT,                   TTTT,    TTTT,    TTTT,
 			  TTTT,
 		],
-		[
+		[	# !@#$^&*()   ~"|_+{}<  ...>
 			ks.EXLM, ks.AT, ks.HASH, ks.DLR,      ks.CIRC,      ks.AMPR, ks.ASTR, ks.LPRN, ks.RPRN,
 			       ks.TILD, ks.DQUO, ks.PIPE, ks.UNDS, ks.PLUS, ks.LCBR, ks.RCBR, ks.LABK,
 			                   TTTT,    TTTT,             TTTT,    ks.RABK,
